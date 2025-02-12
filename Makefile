@@ -1,19 +1,15 @@
 CC=gcc 
 CFLAGS=-O0
 
-all: v1 v2 v3 v4
+SOURCES = $(wildcard src/v*.c)
 
-v1: src/v1.c 
-	gcc -o bin/v1 src/v1.c 
+TARGETS = $(SOURCES:src/%.c=bin/%)
 
-v2: src/v2.c 
-	gcc -o bin/v2 src/v2.c 
+bin/%: src/%.c
+	$(CC) $(CFLAGS) -o $@ $^
 
-v3: src/v3.c 
-	gcc -o bin/v3 src/v3.c 
-
-v4: src/v4.c 
-	gcc -o bin/v4 src/v4.c 
+all: $(TARGETS)
 
 clean:
-	rm -f bin/v1 bin/v2 bin/v3 bin/v4
+	rm -f $(TARGETS)
+
