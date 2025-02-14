@@ -161,17 +161,10 @@ int part5c()
 
 int main() 
 {
-    // Compute results for each part.
-    int result1 = part1d();  // expected 9
-    int result2 = part2d();  // expected 23
-    int result3 = part3d();  // expected 6
-    int result4 = part4e();  // expected 40
-    int result5 = part5c();  // expected 11
-
-    int result = result1 + result2 + result3 + result4 + result5; // total 89
-    
-    if (result == 89) printf("SUCCESS\n");
-    else printf("FAILURE\n");
+    if ((part1d() + part3d() + part5c()) == ((part2d() + part4e()) / 3 + 5))
+        printf("SUCCESS\n");
+    else
+        printf("FAILURE\n");
 
     return 0;
 }
